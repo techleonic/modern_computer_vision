@@ -13,3 +13,6 @@ plt.show()
 
 #write or save image
 cv2.imwrite("output.jpg", image)
+
+#heigth width deth
+print(image.shape)
