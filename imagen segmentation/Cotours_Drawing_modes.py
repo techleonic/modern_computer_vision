@@ -36,3 +36,16 @@ contours, hierarchy = cv2.findContours(th1, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE
 cv2.drawContours(imagen, contours, -1, (0,255,0), thickness=2)
 imshow("Contours over original imagen", imagen)
 print("numbers of contours found = " + str(len(contours)))
+
+# print(contours[0])
+
+"""
+USING RETR_EXTERNAL
+outer part on inside
+"""
+imagen2 = cv2.imread('white_black.jpg')
+gray_imagen2 =  cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
+_ , th2 =  cv2.threshold(gray_imagen2, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+contours2, hierarchy2 = cv2.findContours(th2, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+cv2.drawContours(imagen2, contours, -1, (0,255,0), thickness=2)
+imshow('retr EXTERNAL', imagen2)
